@@ -55,6 +55,7 @@ in
 
     inherit (callPackage ./arm-trusted-firmware { })
       armTrustedFirmwareAllwinner
+      armTrustedFirmwareAllwinnerH6
       armTrustedFirmwareRK3399
       armTrustedFirmwareS905
     ;
@@ -76,6 +77,10 @@ in
     # Common builders
     allwinnerA64 = aarch64.callPackage ../builders/allwinner-a64 {
       TF-A = aarch64.armTrustedFirmwareAllwinner;
+    };
+
+    allwinnerH6 = aarch64.callPackage ../builders/allwinner-a64 {
+      TF-A = aarch64.armTrustedFirmwareAllwinnerH6;
     };
 
     allwinnerArmv7 = armv7l.callPackage ../builders/allwinner-armv7 { };
