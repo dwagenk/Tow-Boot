@@ -18,14 +18,24 @@
     boardIdentifier = "pine64-pineH64A";
     defconfig = "pine_h64_defconfig";
     withPoweroff = false;
+    withSPI = true;
+    SPISize = 16 * 1024 * 1024; # 16 MiB
+    patches = [
+      ./0003-sunxi-SPI-fix-pinmuxing-for-Allwinner-H6-SoCs.patch
+      ./0004-pine-H64-A-enable-SPI-disable-eMMC.patch
+    ];
   };
   pine64-pineH64B = allwinnerH6 {
     boardIdentifier = "pine64-pineH64B";
     defconfig = "pine_h64-model-b_defconfig";
     withPoweroff = false;
+    withSPI = true;
+    SPISize = 16 * 1024 * 1024; # 16 MiB
     patches = [
       ./0001-sunxi-dts-add-device-tree-for-pine-H64-model-B.patch
       ./0002-sunxi-configs-add-defconfig-for-pine-H64-model-B.patch
+      ./0003-sunxi-SPI-fix-pinmuxing-for-Allwinner-H6-SoCs.patch
+      ./0005-pine-H64-B-enable-SPI-disable-eMMC.patch
     ];
   };
   pine64-pinebookA64 = allwinnerA64 {
